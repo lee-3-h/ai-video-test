@@ -1,10 +1,25 @@
-<video autoplay muted playsinline onended="videoEnded()">
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { margin:0; background:black; }
+video { width:100vw; height:100vh; object-fit:cover; }
+</style>
+</head>
+<body>
+
+<video autoplay muted playsinline id="loadingVideo">
   <source src="BSMART.mp4" type="video/mp4">
 </video>
 
 <script>
-function videoEnded() {
-    // When the video ends, go to another page or show something else
-    window.location.href = "next.html"; // optional
-}
+  // When video ends, redirect to a "main menu" page (optional)
+  const video = document.getElementById('loadingVideo');
+  video.onended = () => {
+      // If you want to stay on the same screen, you can leave this empty
+      // Or redirect to another HTML page if needed
+  };
 </script>
+
+</body>
+</html>
