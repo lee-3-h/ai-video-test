@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-body { margin:0; background:black; }
-video { width:100vw; height:100vh; object-fit:cover; }
-</style>
-</head>
-<body>
+<body style="margin:0; background:black; overflow:hidden;">
 
-<video autoplay muted playsinline id="loadingVideo">
+<video id="myVideo" autoplay muted playsinline
+style="width:100vw; height:100vh; object-fit:cover;">
   <source src="BSMART.mp4" type="video/mp4">
 </video>
 
 <script>
-  // When video ends, redirect to a "main menu" page (optional)
-  const video = document.getElementById('loadingVideo');
-  video.onended = () => {
-      // If you want to stay on the same screen, you can leave this empty
-      // Or redirect to another HTML page if needed
+  var video = document.getElementById("myVideo");
+
+  video.onended = function() {
+    if (window.AppInventor) {
+      window.AppInventor.setWebViewString("video_done");
+    }
   };
 </script>
 
